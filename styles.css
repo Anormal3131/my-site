@@ -64,11 +64,30 @@ nav {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.logo-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+    transition: var(--transition);
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+}
+
+.logo:hover .logo-image {
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
 }
 
 .nav-links {
@@ -118,7 +137,7 @@ nav {
 
 /* Hero Bölümü */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,7 +145,7 @@ nav {
     background: var(--gradient-1);
     position: relative;
     overflow: hidden;
-    padding: 0 2rem;
+    padding: 8rem 2rem 4rem;
 }
 
 .hero::before {
@@ -151,15 +170,30 @@ nav {
     margin: 0 auto;
 }
 
+.hero h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .executor-preview {
-    margin: 2rem auto;
-    max-width: 600px;
-    width: 85%;
-    border-radius: 1rem;
+    margin: 3rem auto;
+    max-width: 800px;
+    width: 90%;
+    border-radius: 1.5rem;
     overflow: hidden;
     box-shadow: var(--shadow-3);
-    background: var(--dark-bg);
-    padding: 0.8rem;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 1rem;
+    backdrop-filter: blur(10px);
     transition: var(--transition);
 }
 
@@ -171,20 +205,53 @@ nav {
 .preview-image {
     width: 100%;
     height: auto;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     transition: var(--transition);
     display: block;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.coming-soon {
+    text-align: center;
+    padding: 2rem 0;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.countdown-item {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 1.5rem 2.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-3);
+    min-width: 120px;
+    backdrop-filter: blur(10px);
+}
+
+.countdown-item span:first-child {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    display: block;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.countdown-item span:last-child {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.coming-soon-text {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    line-height: 1.8;
+    color: var(--text-color);
     opacity: 0.9;
 }
 
@@ -546,12 +613,39 @@ footer {
         margin-left: 1rem;
     }
     
+    .hero {
+        padding: 6rem 1rem 2rem;
+    }
+    
     .hero h1 {
         font-size: 3rem;
     }
     
-    .hero p {
-        font-size: 1.2rem;
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .countdown {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 100px;
+        padding: 1rem 1.5rem;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 2rem;
+    }
+    
+    .coming-soon-text {
+        font-size: 1.1rem;
+    }
+
+    .executor-preview {
+        width: 95%;
+        margin: 2rem auto;
     }
     
     .feature-grid,
@@ -1030,75 +1124,4 @@ input:focus, textarea:focus {
 
 .faq-item.active .toggle-icon {
     transform: rotate(45deg);
-}
-
-/* Yakında Sayfası */
-.coming-soon {
-    text-align: center;
-    padding: 2rem 0;
-}
-
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.countdown-item {
-    background: var(--dark-bg);
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-2);
-    min-width: 100px;
-}
-
-.countdown-item span:first-child {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    display: block;
-}
-
-.countdown-item span:last-child {
-    font-size: 1rem;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
-.coming-soon h2 {
-    font-size: 2.5rem;
-    margin: 2rem 0;
-    color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-}
-
-.coming-soon-text {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    line-height: 1.8;
-    color: var(--text-color);
-    opacity: 0.9;
-}
-
-/* Responsive Tasarım */
-@media (max-width: 768px) {
-    .countdown {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-    
-    .countdown-item {
-        min-width: 80px;
-        padding: 0.8rem 1.5rem;
-    }
-    
-    .countdown-item span:first-child {
-        font-size: 2rem;
-    }
-    
-    .coming-soon h2 {
-        font-size: 2rem;
-    }
 }
